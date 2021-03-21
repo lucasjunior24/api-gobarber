@@ -1,10 +1,7 @@
-/* eslint-disable strict */
-
-'use strict';
 
 module.exports = {
-  up: async (queryInterface, Sequelize) =>
-    queryInterface.createTable('users', {
+  up: (queryInterface, Sequelize) => 
+    queryInterface.createTable('files', {
       id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -15,19 +12,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      email: {
+      path: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
-      },
-      password_hash: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      provider: {
-        type: Sequelize.BOOLEAN,
-        allowNull: false,
-        defaultValue: false,
       },
       created_at: {
         type: Sequelize.DATE,
@@ -39,5 +27,5 @@ module.exports = {
       },
     }),
 
-  down: async queryInterface => queryInterface.dropTable('users'),
+  down: queryInterface => queryInterface.dropTable('files'),
 };

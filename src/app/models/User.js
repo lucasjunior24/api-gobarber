@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import Sequelize, { Model } from 'sequelize';
 import bcrypt from "bcryptjs";
 
@@ -23,6 +22,10 @@ class User extends Model {
       }
     });
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.File, { foreignKey: 'avatar_id' });
   }
 
   checkPassword(password) {
