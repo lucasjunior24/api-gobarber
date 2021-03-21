@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import User from '../models/User';
 
 class UserController {
@@ -11,11 +12,16 @@ class UserController {
     const { id, name, email, provider } = await User.create(req.body);
 
     return res.json({
-        id, 
-        name, 
-        email, 
-        provider
+      id,
+      name,
+      email,
+      provider,
     });
+  }
+
+  async update(req, res) {
+    console.log(req.userId)
+    return res.json({ ok: true });
   }
 }
 
