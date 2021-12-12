@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { Router } from 'express';
 import multer from 'multer';
 
@@ -20,7 +19,7 @@ const upload = multer(multerConfig);
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-routes.use(authMiddleware)
+routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
 
@@ -36,6 +35,5 @@ routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);
 
 routes.post('/files', upload.single('file'), FileController.store);
-
 
 export default routes;
